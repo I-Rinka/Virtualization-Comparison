@@ -48,6 +48,9 @@ def get_start_time():
 
     time_consume=end_time-start_time
 
+    os.system("sleep 2")
+
+    # power off
     os.system('''curl --unix-socket /tmp/firecracker.socket -i \\
     -X PUT "http://localhost/actions" \\
     -H  "accept: application/json" \\

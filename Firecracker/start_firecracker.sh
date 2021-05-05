@@ -67,4 +67,4 @@ curl --unix-socket /tmp/firecracker.socket -i \
   -H  'Content-Type: application/json'    \
   -d '{
       "action_type": "InstanceStart"
-   }'
+      }'
