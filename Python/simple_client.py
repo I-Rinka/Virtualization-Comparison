@@ -7,11 +7,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # get local machine name
 host = socket.gethostname()                           
-host="192.168.56.1"
+host="192.168.193.226"
 
-print(host)
+# print(host)
 
-port = 9999
+port = 29999
 
 # connection to hostname on the port.
 s.connect((host, port))                               

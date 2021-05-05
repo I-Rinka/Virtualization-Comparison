@@ -1,6 +1,7 @@
 #!/bin/bash
 arch=`uname -m`
 
+
 kernel_path=$(pwd)"/vmlinux415.bin"
 # kernel_path=$(pwd)"/vmlinux.bin"
 rootfs_path=$(pwd)"/ubuntu18.ext4"
