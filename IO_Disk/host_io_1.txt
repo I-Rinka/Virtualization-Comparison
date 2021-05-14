@@ -1,0 +1,60 @@
+	Iozone: Performance Test of File I/O
+	        Version $Revision: 3.429 $
+		Compiled for 64 bit mode.
+		Build: linux-AMD64 
+
+	Contributors:William Norcott, Don Capps, Isom Crawford, Kirby Collins
+	             Al Slater, Scott Rhine, Mike Wisner, Ken Goss
+	             Steve Landherr, Brad Smith, Mark Kelly, Dr. Alain CYR,
+	             Randy Dunlap, Mark Montague, Dan Million, Gavin Brebner,
+	             Jean-Marc Zucconi, Jeff Blomberg, Benny Halevy, Dave Boone,
+	             Erik Habbinga, Kris Strecker, Walter Wong, Joshua Root,
+	             Fabrice Bacchella, Zhenghua Xue, Qin Li, Darren Sawyer,
+	             Vangel Bojaxhi, Ben England, Vikentsi Lapa.
+
+	Run began: Fri May 14 01:32:11 2021
+
+	Record Size 1 kB
+	Record Size 2 kB
+	Record Size 3 kB
+	Record Size 4 kB
+	Record Size 5 kB
+	Record Size 6 kB
+	Record Size 7 kB
+	Record Size 8 kB
+	Record Size 9 kB
+	Record Size 10 kB
+	Record Size 16 kB
+	Record Size 32 kB
+	Record Size 64 kB
+	Record Size 128 kB
+	Record Size 256 kB
+	Record Size 512 kB
+	File size set to 1048576 kB
+	O_DIRECT feature enabled
+	Command line used: iozone -r 1 -r 2 -r 3 -r 4 -r 5 -r 6 -r 7 -r 8 -r 9 -r 10 -r 16 -r 32 -r 64 -r 128 -r 256 -r 512 -i 0 -i 1 -i 2 -s 1G -I
+	Output is in kBytes/sec
+	Time Resolution = 0.000001 seconds.
+	Processor cache size set to 1024 kBytes.
+	Processor cache line size set to 32 bytes.
+	File stride size set to 17 * record size.
+                                                              random    random     bkwd    record    stride                                    
+              kB  reclen    write  rewrite    read    reread    read     write     read   rewrite      read   fwrite frewrite    fread  freread
+         1048576       1     7988     9666     8721    10903    11647     9236                                                          
+         1048576       2    18061    19335    22398    22388    20885    18553                                                          
+         1048576       3    26849    28396    33319    32210    30693    26573                                                          
+         1048576       4    35929    38898    43777    42560    40939    37582                                                          
+         1048576       5    42306    45264    53906    54382    52704    43519                                                          
+         1048576       6    53628    59631    68640    68466    65706    52333                                                          
+         1048576       7    57993    63969    76438    77114    74150    60666                                                          
+         1048576       8    69168    72541    86644    86662    83379    71538                                                          
+         1048576       9    74310    81289    97999   100598    97911    76906                                                          
+         1048576      10    82835    91223   113022   131840   133550    98957                                                          
+         1048576      16   152259   174124   214828   214373   205907   161969                                                          
+         1048576      32   262670   278607   333913   332617   316480   266555                                                          
+         1048576      64   479003   506394   567073   584605   588602   486173                                                          
+         1048576     128   700272   707204   839642   841014   815677   685945                                                          
+         1048576     256   990181   977298  1185016  1192120  1204025  1031749                                                          
+         1048576     512  1305303  1325849  1242582  1214350  1235595  1280484                                                          
+
+iozone test complete.
