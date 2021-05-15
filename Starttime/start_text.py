@@ -42,7 +42,7 @@ import matplotlib
 
 matplotlib.rc('figure', figsize=(5, 2)) # adjust scale
 
-column=['Qemu','Firecracker','Docker\nno cache','Docker start\nconsecutively']
+column=['Qemu','Firecracker','Docker\ncold start','Docker start\nconsecutively']
 
 data=[qemu,fc,docker_nc,docker_cosc]
 
