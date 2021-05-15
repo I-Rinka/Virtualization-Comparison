@@ -19,7 +19,13 @@ host_tp=np.array(host_tp)
 
 lables=['Qemu','Firecracker','Docker','Host']
 
-plt.bar(lables,[qemu_tp.mean(),fc_tp.mean(),docker_tp.mean(),host_tp.mean()])
+plt.figure(figsize=(7,5))
 
-plt.ylabel('Mega Bytes/second')
+plt.bar(lables,[qemu_tp.mean(),fc_tp.mean(),docker_tp.mean(),host_tp.mean()],color='#0089A7',width=0.5)
+
+plt.axhline(fc_tp.mean(), ls='--', color='#AB3B3A',linewidth=2.0)
+
+plt.title('Network Throughput',fontsize=15)
+
+plt.ylabel('Mega Bytes/second',fontsize=15)
 plt.savefig('NetworkThroughput')

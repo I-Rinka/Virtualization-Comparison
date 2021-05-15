@@ -21,8 +21,10 @@ x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width/2, rnd, width, label='Random Access')
-rects2 = ax.bar(x + width/2, seq, width, label='Sequential Access')
+rects1 = ax.bar(x - width/2, rnd, width, label='Random Access',hatch='/',color='#EEA9A9') # toki
+plt.axhline(fc_rd.mean(), ls='--', color='#AB3B3A',linewidth=1.3) #shinsyu
+rects2 = ax.bar(x + width/2, seq, width, label='Sequential Access',color='#0089A7') # shinbashi
+plt.axhline(fc_sq.mean(), ls='--', color='#AB3B3A',linewidth=1.3)
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Mega Bytes/sec')

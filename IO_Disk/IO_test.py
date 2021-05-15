@@ -45,10 +45,10 @@ def get_x_wt_rd_rwt_rrd(files):
     random_read=np.array(random_read)
     random_write=np.array(random_write)
 
-    dwrite=dwrite/len(files)
-    dread=dread/len(files)
-    random_read=random_read/len(files)
-    random_write=random_write/len(files)
+    dwrite=(dwrite/len(files)).astype(np.int64)
+    dread=(dread/len(files)).astype(np.int64)
+    random_read=(random_read/len(files)).astype(np.int64)
+    random_write=(random_write/len(files)).astype(np.int64)
 
     return x, dwrite, dread, random_write, random_read
 
@@ -111,44 +111,21 @@ host_data = get_x_wt_rd_rwt_rrd(get_host_io())
 fc_data = get_x_wt_rd_rwt_rrd(get_fc_io())
 qemu_data=get_x_wt_rd_rwt_rrd(get_qemu_io())
 
+i=0
+for tag in ['Write','Read','Random Write','Random Read']:
+    i+=1
+    plt.figure(figsize=(10,7))
 
-plt.plot(host_data[0], host_data[1], '-o', label="Host write")
-plt.plot(docker_data[0], docker_data[1],':^',label="Docker write")
-plt.plot(qemu_data[0], qemu_data[1],'-->',label="QEMU write")
-plt.plot(fc_data[0], fc_data[1],':^',label="Firecracker write")
-plt.legend()
-plt.savefig("Write", dpi=600)
-# plt.show()
-
-plt.cla()
-
-plt.plot(host_data[0], host_data[2], '-o', label="Host read")
-plt.plot(docker_data[0], docker_data[2],':^',label="Docker read")
-plt.plot(qemu_data[0], qemu_data[2],'-->',label="QEMU read")
-plt.plot(fc_data[0], fc_data[2],':^',label="Firecracker read")
-plt.legend()
-plt.savefig("Read", dpi=600)
-# plt.show()
-
-plt.cla()
-
-plt.plot(host_data[0], host_data[3], '-o', label="Host random write")
-plt.plot(docker_data[0], docker_data[3],':^',label="Docker random write")
-plt.plot(qemu_data[0], qemu_data[3],'-->',label="QEMU random write")
-plt.plot(fc_data[0], fc_data[3],':^',label="Firecracker random write")
-plt.legend()
-plt.savefig("RandomWrite", dpi=600)
-# plt.show()
-
-plt.cla()
-
-plt.plot(host_data[0], host_data[4], '-o', label="Host random read")
-plt.plot(docker_data[0], docker_data[4],':^',label="Docker random read")
-plt.plot(qemu_data[0], qemu_data[4],'-->',label="QEMU random read")
-plt.plot(fc_data[0], fc_data[4],':^',label="Firecracker random read")
-plt.legend()
-plt.savefig("RandomRead", dpi=600)
-# plt.show()
-
+    plt.plot(host_data[0], host_data[i], '-o', label="Host %s"%tag)
+    plt.plot(docker_data[0], docker_data[i],':^',label="Docker %s"%tag)
+    plt.plot(qemu_data[0], qemu_data[i],'-->',label="QEMU %s"%tag)
+    plt.plot(fc_data[0], fc_data[i],':^',label="Firecracker %s"%tag)
+    plt.legend(fontsize=13)
+    plt.ylabel('Mega Bytes/sec',fontsize=18)
+    plt.title('Disk '+tag,fontsize=18)
+    plt.ticklabel_format(style='plain')
+    plt.savefig(tag, dpi=600)
+    # plt.show()
+    # plt.clf()
 
 # %%

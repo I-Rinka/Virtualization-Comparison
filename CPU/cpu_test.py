@@ -19,8 +19,10 @@ host=np.array(host)
 
 lables=['Qemu','Firecracker','Docker','Host']
 
-plt.bar(lables,[qemu.mean(),fc.mean(),docker.mean(),host.mean()])
+plt.bar(lables,[qemu.mean(),fc.mean(),docker.mean(),host.mean()],width=0.5,color='#0089A7')
+plt.axhline(fc.mean(), ls='--', color='#AB3B3A',linewidth=1.8) #shinsyu
 
-plt.ylabel('events per second')
+plt.title('CPU Performance',fontsize=15)
+plt.ylabel('Events per second',fontsize=15)
 plt.savefig('CPU')
-plt.show()
+# plt.show()
