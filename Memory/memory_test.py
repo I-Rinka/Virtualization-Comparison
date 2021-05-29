@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.ticker as mlt
 
 
 labels = ['Qemu', 'Firecracker', 'Docker', 'Host']
@@ -25,6 +26,8 @@ rects1 = ax.bar(x - width/2, rnd, width, label='Random Access',hatch='/',color='
 plt.axhline(fc_rd.mean(), ls='--', color='#AB3B3A',linewidth=1.3) #shinsyu
 rects2 = ax.bar(x + width/2, seq, width, label='Sequential Access',color='#0089A7') # shinbashi
 plt.axhline(fc_sq.mean(), ls='--', color='#AB3B3A',linewidth=1.3)
+plt.gca().yaxis.set_major_formatter(
+    mlt.FuncFormatter(lambda x, p: format(int(x), ',')))
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Mega Bytes/sec')

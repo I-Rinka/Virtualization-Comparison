@@ -1,6 +1,7 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.ticker as mlt
 # import os
 
 # %%
@@ -116,14 +117,16 @@ for tag in ['Write','Read','Random Write','Random Read']:
     i+=1
     plt.figure(figsize=(10,7))
 
-    plt.plot(host_data[0], host_data[i], '-o', label="Host %s"%tag)
-    plt.plot(docker_data[0], docker_data[i],':^',label="Docker %s"%tag)
-    plt.plot(qemu_data[0], qemu_data[i],'-->',label="QEMU %s"%tag)
-    plt.plot(fc_data[0], fc_data[i],':^',label="Firecracker %s"%tag)
+    plt.plot(host_data[0], host_data[i]/1024, '-o', label="Host %s"%tag)
+    plt.plot(docker_data[0], docker_data[i]/1024,':^',label="Docker %s"%tag)
+    plt.plot(qemu_data[0], qemu_data[i]/1024,'-->',label="QEMU %s"%tag)
+    plt.plot(fc_data[0], fc_data[i]/1024,':^',label="Firecracker %s"%tag)
     plt.legend(fontsize=13)
     plt.ylabel('Mega Bytes/sec',fontsize=18)
     plt.title('Disk '+tag,fontsize=18)
     plt.ticklabel_format(style='plain')
+    plt.gca().yaxis.set_major_formatter(
+    mlt.FuncFormatter(lambda x, p: format(int(x), ',')))
     plt.savefig(tag, dpi=600)
     # plt.show()
     # plt.clf()
