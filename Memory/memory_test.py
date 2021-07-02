@@ -23,6 +23,7 @@ width = 0.35  # the width of the bars
 
 fig, ax = plt.subplots()
 rects1 = ax.bar(x - width/2, rnd, width, label='Random Access',hatch='/',color='#EEA9A9') # toki
+plt.rc('font',family='Times New Roman')
 plt.axhline(fc_rd.mean(), ls='--', color='#AB3B3A',linewidth=1.3) #shinsyu
 rects2 = ax.bar(x + width/2, seq, width, label='Sequential Access',color='#0089A7') # shinbashi
 plt.axhline(fc_sq.mean(), ls='--', color='#AB3B3A',linewidth=1.3)
@@ -38,5 +39,5 @@ ax.legend(loc='best',bbox_to_anchor=(1.0,1.0),fancybox=True,shadow=False)
 
 fig.tight_layout()
 
-plt.savefig('Memory')
+plt.savefig('Memory',dpi=600)
 plt.show()

@@ -115,7 +115,9 @@ qemu_data=get_x_wt_rd_rwt_rrd(get_qemu_io())
 i=0
 for tag in ['Write','Read','Random Write','Random Read']:
     i+=1
-    plt.figure(figsize=(10,7))
+    plt.figure(figsize=(6,5))
+
+    plt.rc('font',family='Times New Roman')
 
     plt.plot(host_data[0], host_data[i]/1024, '-o', label="Host %s"%tag)
     plt.plot(docker_data[0], docker_data[i]/1024,':^',label="Docker %s"%tag)

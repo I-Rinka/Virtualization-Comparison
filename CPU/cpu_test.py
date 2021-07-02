@@ -18,7 +18,7 @@ host = np.array(host)
 
 
 lables = ['Qemu', 'Firecracker', 'Docker', 'Host']
-
+plt.rc('font',family='Times New Roman')
 plt.bar(lables, [qemu.mean(), fc.mean(), docker.mean(),
         host.mean()], width=0.5, color='#0089A7')
 plt.axhline(fc.mean(), ls='--', color='#AB3B3A', linewidth=1.8)  # shinsyu
@@ -30,5 +30,5 @@ plt.gca().yaxis.set_major_formatter(
 
 plt.title('CPU Performance', fontsize=15)
 plt.ylabel('Events per second', fontsize=15)
-plt.savefig('CPU')
+plt.savefig('CPU',dpi=600)
 # plt.show()

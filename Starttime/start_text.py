@@ -57,7 +57,7 @@ table_text=np.array(table_text)
 table_text=np.swapaxes(table_text,0,1)
 
 plt.figure(dpi=600)
-
+plt.rc('font',family='Times New Roman')
 table=plt.table(cellText=table_text,rowLabels=['Average (second)','Standard Deviation'],colLabels=column,loc='bottom',cellLoc='center',rowLoc='center')
 
 table.auto_set_font_size(False)
@@ -74,5 +74,5 @@ plt.yscale('linear')
 plt.axhline(fc.mean(), ls='--', color='#AB3B3A',linewidth=1.0)
 
 plt.subplots_adjust(left=0.2, bottom=-0.4)
-plt.show()
+plt.savefig('StartupTime',dpi=600)
 # %%
